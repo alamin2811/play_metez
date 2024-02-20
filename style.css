@@ -1,0 +1,361 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #04643C;
+    font-family: "Outfit", sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+.buy-token-card {
+    border-radius: 30px;
+    background: #064028;
+    width: 100%;
+    overflow: hidden;
+}
+
+.buy-token-card .overlay {
+    background: url(./img/card-bg.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 60px 50px 30px 50px;
+}
+
+.buy-token-card h3 {
+    color: #FFF;
+    text-align: center;
+    font-family: Outfit;
+    text-transform: uppercase;
+    line-height: 30px;
+}
+
+.buy-token-card .timer {
+    max-width: 470px;
+    width: 100%;
+    margin: auto;
+}
+
+.buy-token-card .timer ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0px;
+    margin: 50px 0px;
+}
+
+.buy-token-card .timer ul li {
+    text-align: center;
+    font-family: "Bebas Neue";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.20) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.buy-token-card .timer ul li::after{
+    content: ':';
+    margin-left: 18px;
+    margin-top: -2px;
+}
+.buy-token-card .timer ul li:nth-last-child(1):after{
+    display: none;
+}
+
+.buy-token-card h5 {
+    color: #FFF;
+    line-height: 26px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.buy-token-prpgress {
+    margin-top: 55px;
+    margin-bottom: 48px;
+}
+
+.buy-token-prpgress .progress {
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    margin-bottom: 30px;
+    height: 24px;
+}
+
+.buy-token-prpgress .progress .progress-bar {
+    border-radius: 12px;
+    background: #1DFF96;
+    text-align: right;
+    padding: 6px 8px;
+    color: #111;
+    text-align: right;
+    font-family: Outfit;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 15px;
+}
+
+.buy-token-prpgress p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #FFF;
+    font-family: Outfit;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+    text-transform: uppercase;
+}
+
+.buy-token-prpgress p span.align-right {
+    text-align: right;
+}
+
+.buy-token-btn {
+    border-radius: 30px;
+    background: linear-gradient(90deg, #1DFF96 0%, #BCFF7B 100%);
+    backdrop-filter: blur(10px);
+    height: 60px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #111;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+}
+
+.buy-token-card .card-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.payment-modal .modal-dialog {
+    max-width: 570px;
+}
+
+.payment-modal-body {
+    text-align: center;
+    position: relative;
+    padding: 40px;
+}
+
+.payment-modal-body .btn-close {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    height: 10px;
+    width: 10px;
+}
+
+.payment-modal-body h3 {
+    color: #111111;
+    margin-bottom: 40px;
+}
+
+.payment-modal-body h5 {
+    color: #111;
+    line-height: 26px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.payment-tab .payment-tab-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: none;
+    margin-bottom: 50px;
+}
+
+.payment-tab .payment-tab-list li {
+    width: 23%;
+}
+
+.payment-tab .payment-tab-list li button {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.12) !important;
+    background: #FFF;
+    color: #111;
+    font-family: Outfit;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+    text-transform: uppercase;
+}
+
+.payment-tab .payment-tab-list li button img {
+    border-radius: 50%;
+    overflow: hidden;
+    min-height: 30px;
+    min-width: 30px;
+    max-height: 30px;
+    max-width: 30px;
+}
+
+.payment-tab .payment-tab-list li button.active {
+    border: 2px solid #04643C !important;
+    background: rgba(4, 100, 60, 0.10);
+    color: #04643C;
+}
+
+.wallet-qr-code {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.10);
+    max-width: 165px;
+    width: 100%;
+    margin: auto;
+}
+
+.wallet-qr-code img {
+    max-width: 100%;
+}
+
+.payment-tab-content .wallet-address-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: #F5F5F5;
+    padding: 17px 15px;
+    margin-bottom: 21px;
+    margin-top: 40px;
+}
+
+.payment-tab-content .wallet-address-text {
+    color: #111;
+    font-family: Outfit;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+    max-width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+
+.wallet-cpy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    width: min-content;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.payment-tab-content p.note {
+    color: #EC6868;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+    margin: 0px;
+}
+
+
+@media screen and (max-width: 1200px) and (min-width: 991px) {
+    .buy-token-card .timer ul li {
+        font-size: 40px;
+    }
+    .buy-token-card .timer ul{
+        margin: 30px 0px;
+    }
+    .buy-token-prpgress{
+        margin: 30px 0px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .buy-token-card .timer ul li::after{
+        margin-left: 12px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .payment-tab .payment-tab-list {
+        margin-bottom: 30px;
+    }
+
+    .buy-token-card .timer{
+        max-width: 300px;
+    }
+    .buy-token-card .timer ul li {
+        font-size: 40px;
+    }
+
+    .payment-modal-body {
+        padding: 40px 20px;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .payment-tab .payment-tab-list li {
+        width: 48%;
+        margin-bottom: 13px;
+    }
+    .buy-token-card .timer ul{
+        margin: 30px 0px;
+    }
+    .buy-token-prpgress{
+        margin: 30px 0px;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    h3{
+        font-size: 24px;
+    }
+    .buy-token-card .overlay{
+        padding: 40px 30px 25px;
+    }
+}
