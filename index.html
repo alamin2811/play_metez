@@ -103,7 +103,7 @@
                                         <div class="wallet-address-box">
                                             <img class="coin-icon" src="./img/eth.png" alt="icon">
                                             <span
-                                                class="wallet-address-text">0x91c6D286BdDBCD6563Ed6e6578Df15a8DD1DEB1F</span>
+                                                class="wallet-address-text">0x91c6D286BdDBCD64SKLED463NR8Df15a8DD1DEB1F</span>
                                             <button class="wallet-cpy-btn"><img src="./img/copy-icon.png"
                                                     alt="icon"></button>
                                         </div>
@@ -135,7 +135,7 @@
                                         <div class="wallet-address-box">
                                             <img class="coin-icon" src="./img/btc.png" alt="icon">
                                             <span
-                                                class="wallet-address-text">0x91c6D286BdDBCD6563Ed6e6578Df15a8DD1DEB1F</span>
+                                                class="wallet-address-text">0x91c6D286BdDBC4JS232NF4AM78Df15a8DD1DEB1F</span>
                                             <button class="wallet-cpy-btn"><img src="./img/copy-icon.png"
                                                     alt="icon"></button>
                                         </div>
@@ -151,7 +151,7 @@
                                         <div class="wallet-address-box">
                                             <img class="coin-icon" src="./img/usdt.png" alt="icon">
                                             <span
-                                                class="wallet-address-text">0x91c6D286BdDBCD6563Ed6e6578Df15a8DD1DEB1F</span>
+                                                class="wallet-address-text">0x91c6D286BdDBCD6563Ed6e6578Df15a8D45s4t2</span>
                                             <button class="wallet-cpy-btn"><img src="./img/copy-icon.png"
                                                     alt="icon"></button>
                                         </div>
@@ -161,6 +161,7 @@
                                 </div>
                             </div>
                         </div>
+                        <h6>For wire transfers please email: <a href="mailto:info@playmatez.io">info@playmatez.io</a></h6>
                     </div>
                 </div>
             </div>
@@ -206,6 +207,29 @@
             }, 1000);
         }
         /*-- Timer scripts end --*/
+    </script>
+
+<script>
+    /*-- copy wallet address --*/
+    $(document).ready(function() {
+    // Add click event listener to each copy button
+    $('.wallet-cpy-btn').click(function() {
+        // Retrieve the wallet address associated with the clicked button
+        var walletAddress = $(this).siblings('.wallet-address-text').text().trim();
+        
+        // Copy the wallet address to the clipboard
+        navigator.clipboard.writeText(walletAddress)
+            .then(function() {
+                // Alert the user or provide some feedback
+                alert('Wallet address copied to clipboard: ' + walletAddress);
+            })
+            .catch(function(error) {
+                console.error('Unable to copy to clipboard:', error);
+                // Handle the error, such as displaying a message to the user
+                alert('Failed to copy wallet address to clipboard. Please try again.');
+            });
+    });
+});
     </script>
 </body>
 

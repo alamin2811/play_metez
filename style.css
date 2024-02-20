@@ -76,12 +76,14 @@ h5 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.buy-token-card .timer ul li::after{
+
+.buy-token-card .timer ul li::after {
     content: ':';
     margin-left: 18px;
     margin-top: -2px;
 }
-.buy-token-card .timer ul li:nth-last-child(1):after{
+
+.buy-token-card .timer ul li:nth-last-child(1):after {
     display: none;
 }
 
@@ -303,32 +305,50 @@ h5 {
     margin: 0px;
 }
 
+.payment-modal-body h6 {
+    color: #111;
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+    margin-top: 30px;
+}
+
+.payment-modal-body h6 a {
+    color: #04643C;
+    text-decoration: none;
+}
 
 @media screen and (max-width: 1200px) and (min-width: 991px) {
     .buy-token-card .timer ul li {
         font-size: 40px;
     }
-    .buy-token-card .timer ul{
+
+    .buy-token-card .timer ul {
         margin: 30px 0px;
     }
-    .buy-token-prpgress{
+
+    .buy-token-prpgress {
         margin: 30px 0px;
     }
 }
 
 @media only screen and (max-width: 768px) {
-    .buy-token-card .timer ul li::after{
+    .buy-token-card .timer ul li::after {
         margin-left: 12px;
     }
 }
+
 @media only screen and (max-width: 600px) {
     .payment-tab .payment-tab-list {
         margin-bottom: 30px;
     }
 
-    .buy-token-card .timer{
+    .buy-token-card .timer {
         max-width: 300px;
     }
+
     .buy-token-card .timer ul li {
         font-size: 40px;
     }
@@ -343,19 +363,22 @@ h5 {
         width: 48%;
         margin-bottom: 13px;
     }
-    .buy-token-card .timer ul{
+
+    .buy-token-card .timer ul {
         margin: 30px 0px;
     }
-    .buy-token-prpgress{
+
+    .buy-token-prpgress {
         margin: 30px 0px;
     }
 }
 
-@media only screen and (max-width: 480px){
-    h3{
+@media only screen and (max-width: 480px) {
+    h3 {
         font-size: 24px;
     }
-    .buy-token-card .overlay{
+
+    .buy-token-card .overlay {
         padding: 40px 30px 25px;
     }
 }
