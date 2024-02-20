@@ -98,28 +98,30 @@
                                     aria-labelledby="eth-tab">
                                     <div class="payment-tab-content">
                                         <div class="wallet-qr-code">
-                                            <img src="./img/qr-code.png" alt="qr-code">
+                                            <img src="./img/qr-code-eth.png" alt="qr-code">
                                         </div>
                                         <div class="wallet-address-box">
                                             <img class="coin-icon" src="./img/eth.png" alt="icon">
                                             <span
-                                                class="wallet-address-text">0x91c6D286BdDBCD64SKLED463NR8Df15a8DD1DEB1F</span>
+                                                class="wallet-address-text">bc1qylhv6k8vehm92pxt3l23lfztup952gqn9v6k8e</span>
+                                            <img src="./img/check.svg" alt="icon" class="check-icon">
                                             <button class="wallet-cpy-btn"><img src="./img/copy-icon.png"
                                                     alt="icon"></button>
                                         </div>
-                                        <p class="note">*Do NOT send any other currency than BNB to this address on BSC
-                                            network</p>
+                                        <p class="note">*Do NOT send any other currency than Ethereum to this address
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="bnb" role="tabpanel" aria-labelledby="bnb-tab">
                                     <div class="payment-tab-content">
                                         <div class="wallet-qr-code">
-                                            <img src="./img/qr-code.png" alt="qr-code">
+                                            <img src="./img/qr-code-bnb.png" alt="qr-code">
                                         </div>
                                         <div class="wallet-address-box">
                                             <img class="coin-icon" src="./img/bnb.png" alt="icon">
                                             <span
                                                 class="wallet-address-text">0x91c6D286BdDBCD6563Ed6e6578Df15a8DD1DEB1F</span>
+                                            <img src="./img/check.svg" alt="icon" class="check-icon">
                                             <button class="wallet-cpy-btn"><img src="./img/copy-icon.png"
                                                     alt="icon"></button>
                                         </div>
@@ -130,38 +132,39 @@
                                 <div class="tab-pane fade" id="btc" role="tabpanel" aria-labelledby="btc-tab">
                                     <div class="payment-tab-content">
                                         <div class="wallet-qr-code">
-                                            <img src="./img/qr-code.png" alt="qr-code">
+                                            <img src="./img/qr-code-btc.png" alt="qr-code">
                                         </div>
                                         <div class="wallet-address-box">
                                             <img class="coin-icon" src="./img/btc.png" alt="icon">
                                             <span
-                                                class="wallet-address-text">0x91c6D286BdDBC4JS232NF4AM78Df15a8DD1DEB1F</span>
+                                                class="wallet-address-text">bc1qylhv6k8vehm92pxt3l23lfztup952gqn9v6k8e</span>
+                                            <img src="./img/check.svg" alt="icon" class="check-icon">
                                             <button class="wallet-cpy-btn"><img src="./img/copy-icon.png"
                                                     alt="icon"></button>
                                         </div>
-                                        <p class="note">*Do NOT send any other currency than BNB to this address on BSC
-                                            network</p>
+                                        <p class="note">*Do NOT send any other currency than Bitcoin to this address</p>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="usdt" role="tabpanel" aria-labelledby="usdt-tab">
                                     <div class="payment-tab-content">
                                         <div class="wallet-qr-code">
-                                            <img src="./img/qr-code.png" alt="qr-code">
+                                            <img src="./img/qr-code-usdt.png" alt="qr-code">
                                         </div>
                                         <div class="wallet-address-box">
                                             <img class="coin-icon" src="./img/usdt.png" alt="icon">
                                             <span
-                                                class="wallet-address-text">0x91c6D286BdDBCD6563Ed6e6578Df15a8D45s4t2</span>
+                                                class="wallet-address-text">0x91c6D286BdDBCD6563Ed6e6578Df15a8DD1DEB1F</span>
+                                            <img src="./img/check.svg" alt="icon" class="check-icon">
                                             <button class="wallet-cpy-btn"><img src="./img/copy-icon.png"
                                                     alt="icon"></button>
                                         </div>
-                                        <p class="note">*Do NOT send any other currency than BNB to this address on BSC
-                                            network</p>
+                                        <p class="note">*Do NOT send any other currency than USDT to this address</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <h6>For wire transfers please email: <a href="mailto:info@playmatez.io">info@playmatez.io</a></h6>
+                        <h6>For wire transfers please email: <a href="mailto:info@playmatez.io">info@playmatez.io</a>
+                        </h6>
                     </div>
                 </div>
             </div>
@@ -209,27 +212,38 @@
         /*-- Timer scripts end --*/
     </script>
 
-<script>
-    /*-- copy wallet address --*/
-    $(document).ready(function() {
-    // Add click event listener to each copy button
-    $('.wallet-cpy-btn').click(function() {
-        // Retrieve the wallet address associated with the clicked button
-        var walletAddress = $(this).siblings('.wallet-address-text').text().trim();
-        
-        // Copy the wallet address to the clipboard
-        navigator.clipboard.writeText(walletAddress)
-            .then(function() {
-                // Alert the user or provide some feedback
-                alert('Wallet address copied to clipboard: ' + walletAddress);
-            })
-            .catch(function(error) {
-                console.error('Unable to copy to clipboard:', error);
-                // Handle the error, such as displaying a message to the user
-                alert('Failed to copy wallet address to clipboard. Please try again.');
+    <script>
+        /*-- copy wallet address --*/
+        function copyToClipboard(text) {
+            var dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+        }
+
+        function showCheckIcon(iconElement) {
+            iconElement.style.display = "inline";
+            setTimeout(function () {
+                iconElement.style.display = "none";
+            }, 3000);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var copyButtons = document.querySelectorAll(".wallet-cpy-btn");
+            copyButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    var walletAddressText = this.parentNode.querySelector(".wallet-address-text").textContent;
+                    navigator.clipboard.writeText(walletAddressText).then(function () {
+                        var checkIcon = button.parentNode.querySelector(".check-icon");
+                        showCheckIcon(checkIcon);
+                    }).catch(function (err) {
+                        console.error('Failed to copy: ', err);
+                    });
+                });
             });
-    });
-});
+        });
     </script>
 </body>
 
