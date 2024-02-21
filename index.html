@@ -7,8 +7,442 @@
     <title>Play Matez</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./style.css">
 </head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background: #04643C;
+        font-family: "Outfit", sans-serif;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 600;
+    }
+
+    h3 {
+        font-size: 30px;
+    }
+
+    h5 {
+        font-size: 18px;
+    }
+
+    .buy-token-card {
+        border-radius: 30px;
+        background: #064028;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .buy-token-card .overlay {
+        background: url(./img/card-bg.png);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        padding: 60px 50px 30px 50px;
+    }
+
+    .buy-token-card h3 {
+        color: #FFF;
+        text-align: center;
+        font-family: Outfit;
+        text-transform: uppercase;
+        line-height: 30px;
+    }
+
+    .buy-token-card .timer {
+        max-width: 470px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .buy-token-card .timer ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0px;
+        margin: 50px 0px;
+    }
+
+    .buy-token-card .timer ul li {
+        text-align: center;
+        font-family: "Bebas Neue";
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 50px;
+        background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.20) 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .buy-token-card .timer ul li::after {
+        content: ':';
+        margin-left: 18px;
+        margin-top: -2px;
+    }
+
+    .buy-token-card .timer ul li:nth-last-child(1):after {
+        display: none;
+    }
+
+    .buy-token-card h5 {
+        color: #FFF;
+        line-height: 26px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .buy-token-prpgress {
+        margin-top: 55px;
+        margin-bottom: 48px;
+    }
+
+    .buy-token-prpgress .progress {
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.10);
+        backdrop-filter: blur(10px);
+        overflow: hidden;
+        margin-bottom: 30px;
+        height: 24px;
+    }
+
+    .buy-token-prpgress .progress .progress-bar {
+        border-radius: 12px;
+        background: #1DFF96;
+        padding: 6px 8px 6px 0px;
+        color: #111;
+        text-align: right;
+        font-family: Outfit;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 15px;
+        overflow: visible;
+    }
+
+    .buy-token-prpgress p {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #FFF;
+        font-family: Outfit;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 26px;
+        text-transform: uppercase;
+    }
+
+    .buy-token-prpgress p span.align-right {
+        text-align: right;
+    }
+
+    .buy-token-btn {
+        border-radius: 30px;
+        background: linear-gradient(90deg, #1DFF96 0%, #BCFF7B 100%);
+        backdrop-filter: blur(10px);
+        height: 60px;
+        width: 100%;
+        border: none;
+        outline: none;
+        color: #111;
+        text-align: center;
+        font-family: Outfit;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 26px;
+        text-transform: uppercase;
+        margin-bottom: 28px;
+    }
+
+    .buy-token-card .card-img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .payment-card{
+        background: #FFFFFF;
+        overflow: hidden;
+        border-radius: 30px;
+    }
+    .payment-card .modal-dialog {
+        max-width: 570px;
+    }
+
+    .payment-card-body {
+        text-align: center;
+        position: relative;
+        padding: 40px;
+    }
+
+    .payment-card-body .btn-close {
+        position: absolute;
+        right: 24px;
+        top: 24px;
+        height: 10px;
+        width: 10px;
+    }
+
+    .payment-card-body h3 {
+        color: #111111;
+        margin-bottom: 40px;
+    }
+
+    .payment-card-body h5 {
+        color: #111;
+        line-height: 26px;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+    }
+
+    .payment-tab .payment-tab-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        border: none;
+        margin-bottom: 40px;
+    }
+
+    .payment-tab .payment-tab-list li {
+        width: 23%;
+    }
+
+    .payment-tab .payment-tab-list li button {
+        height: 60px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        border-radius: 15px;
+        border: 2px solid rgba(0, 0, 0, 0.12) !important;
+        background: #FFF;
+        color: #111;
+        font-family: Outfit;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 26px;
+        text-transform: uppercase;
+    }
+
+    .payment-tab .payment-tab-list li button img {
+        border-radius: 50%;
+        overflow: hidden;
+        min-height: 30px;
+        min-width: 30px;
+        max-height: 30px;
+        max-width: 30px;
+    }
+
+    .payment-tab .payment-tab-list li button.active {
+        border: 2px solid #04643C !important;
+        background: rgba(4, 100, 60, 0.10);
+        color: #04643C;
+    }
+
+    .wallet-qr-code {
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid rgba(0, 0, 0, 0.10);
+        max-width: 165px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .wallet-qr-code img {
+        max-width: 100%;
+    }
+
+    .payment-tab-content .wallet-address-box {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        border-radius: 15px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        background: #F5F5F5;
+        padding: 17px 15px;
+        margin-bottom: 21px;
+        margin-top: 40px;
+    }
+
+    .payment-tab-content .wallet-address-text {
+        color: #111;
+        font-family: Outfit;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 26px;
+        width: 80%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: left;
+
+    }
+
+
+    .wallet-cpy-btn {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-left: auto;
+        width: min-content;
+        border: none;
+        background: transparent;
+        outline: none;
+    }
+
+    .copied-text {
+        color: #04643C;
+        font-weight: 500;
+    }
+
+    .payment-tab-content p.note {
+        color: #EC6868;
+        text-align: center;
+        font-family: Outfit;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 26px;
+        margin: 0px;
+    }
+
+    .payment-card-body h6 {
+        color: #111;
+        text-align: center;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 26px;
+        margin-top: 20px;
+        margin-bottom: 0px;
+    }
+
+    .payment-card-body h6 a {
+        color: #04643C;
+        text-decoration: none;
+    }
+
+    .flip-card {
+        background-color: transparent;
+        perspective: 1000px;
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .flip-card.active .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .flip-card-back {
+        background: #FFFFFF;
+        transform: rotateY(180deg);
+    }
+
+    @media screen and (max-width: 1200px) and (min-width: 991px) {
+        .buy-token-prpgress .progress .progress-bar {
+            font-size: 12px;
+        }
+
+        .buy-token-card .timer ul li {
+            font-size: 40px;
+        }
+
+        .buy-token-card .timer ul {
+            margin: 30px 0px;
+        }
+
+        .buy-token-prpgress {
+            margin: 30px 0px;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        .buy-token-card .timer ul li::after {
+            margin-left: 12px;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .payment-tab .payment-tab-list {
+            margin-bottom: 30px;
+        }
+
+        .buy-token-card .timer {
+            max-width: 300px;
+        }
+
+        .buy-token-card .timer ul li {
+            font-size: 40px;
+        }
+
+        .payment-card-body {
+            padding: 40px 20px;
+        }
+    }
+
+    @media only screen and (max-width: 540px) {
+        .payment-tab .payment-tab-list li {
+            width: 48%;
+            margin-bottom: 13px;
+        }
+
+        .buy-token-card .timer ul {
+            margin: 30px 0px;
+        }
+
+        .buy-token-prpgress {
+            margin: 30px 0px;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        h3 {
+            font-size: 24px;
+        }
+
+        .buy-token-card .overlay {
+            padding: 40px 30px 25px;
+        }
+    }
+</style>
 
 <body>
     <div class="container mt-5">
@@ -17,233 +451,217 @@
                 <a href="index.html"><img src="" alt=""></a>
             </div>
             <div class="col-lg-6">
-                <div class="buy-token-card">
-                    <div class="overlay">
-                        <h3>ICO Sale Ends in </h3>
-                        <div class="timer">
-                            <ul>
-                                <li class="days">255<span>d</span></li>
-                                <li class="hours">22<span>h</span></li>
-                                <li class="minutes">49<span>m</span></li>
-                                <li class="seconds">03<span>s</span></li>
-                            </ul>
-                        </div>
-                        <h5>Price: 1 $PLYM = $0.0005</h5>
-                        <div class="buy-token-prpgress">
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-label="Basic example"
-                                    style="width: 34%" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100">
-                                    34%
-                                </div>
-                            </div>
-                            <p>
-                                <span>
-                                    Raised
-                                    <br>
-                                    $40,000
-                                </span>
-                                <span class="align-right">
-                                    Goal
-                                    <br>
-                                    $1,000,000
-                                </span>
-                            </p>
-                        </div>
-
-                        <button class="buy-token-btn" data-bs-toggle="modal" data-bs-target="#paymentModal">Buy Token
-                            Now</button>
-                        <div class="card-img">
-                            <img class="mt-2" src="./img/cards-img.png" alt="img">
-                            <img src="./img/bank-icon.svg" alt="icon">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="payment-modal">
-        <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body payment-modal-body">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        <h3>Buy $PLYM Before End</h3>
-                        <h5>Payment Options</h5>
-                        <div class="payment-tab">
-                            <ul class="nav nav-tabs payment-tab-list" id="paymentTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="eth-tab" data-bs-toggle="tab"
-                                        data-bs-target="#eth" type="button" role="tab" aria-controls="eth"
-                                        aria-selected="true"><img src="./img/eth.png" alt="icon"> Eth</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="bnb-tab" data-bs-toggle="tab" data-bs-target="#bnb"
-                                        type="button" role="tab" aria-controls="bnb" aria-selected="false"><img
-                                            src="./img/bnb.png" alt="icon">Bnb</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="btc-tab" data-bs-toggle="tab" data-bs-target="#btc"
-                                        type="button" role="tab" aria-controls="btc" aria-selected="false"><img
-                                            src="./img/btc.png" alt="icon">Btc</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="usdt-tab" data-bs-toggle="tab" data-bs-target="#usdt"
-                                        type="button" role="tab" aria-controls="usdt" aria-selected="false"><img
-                                            src="./img/usdt.png" alt="icon">Usdt</button>
-                                </li>
-                            </ul>
-                            <div class="tab-content" id="paymentTabContent">
-                                <div class="tab-pane fade show active" id="eth" role="tabpanel"
-                                    aria-labelledby="eth-tab">
-                                    <div class="payment-tab-content">
-                                        <div class="wallet-qr-code">
-                                            <img src="./img/qr-code-eth.png" alt="qr-code">
+                <div class="flip-card" id="FlipCard">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="buy-token-card">
+                                <div class="overlay">
+                                    <h3>ICO Sale Ends in </h3>
+                                    <div class="timer">
+                                        <ul>
+                                            <li class="days">255<span>d</span></li>
+                                            <li class="hours">22<span>h</span></li>
+                                            <li class="minutes">49<span>m</span></li>
+                                            <li class="seconds">03<span>s</span></li>
+                                        </ul>
+                                    </div>
+                                    <h5>Price: 1 $PLYM = $0.0005</h5>
+                                    <div class="buy-token-prpgress">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-label="Basic example"
+                                                style="width: 4%" aria-valuenow="4" aria-valuemin="0"
+                                                aria-valuemax="100">
+                                                4%
+                                            </div>
                                         </div>
-                                        <div class="wallet-address-box">
-                                            <img class="coin-icon" src="./img/eth.png" alt="icon">
-                                            <span
-                                                class="wallet-address-text">bc1qylhv6k8vehm92pxt3l23lfztup952gqn9v6k8e</span>
-                                            <img src="./img/check.svg" alt="icon" class="check-icon">
-                                            <button class="wallet-cpy-btn"><img src="./img/copy-icon.png"
-                                                    alt="icon"></button>
-                                        </div>
-                                        <p class="note">*Do NOT send any other currency than Ethereum to this address
+                                        <p>
+                                            <span>
+                                                Raised
+                                                <br>
+                                                $40,000
+                                            </span>
+                                            <span class="align-right">
+                                                Goal
+                                                <br>
+                                                $1,000,000
+                                            </span>
                                         </p>
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="bnb" role="tabpanel" aria-labelledby="bnb-tab">
-                                    <div class="payment-tab-content">
-                                        <div class="wallet-qr-code">
-                                            <img src="./img/qr-code-bnb.png" alt="qr-code">
-                                        </div>
-                                        <div class="wallet-address-box">
-                                            <img class="coin-icon" src="./img/bnb.png" alt="icon">
-                                            <span
-                                                class="wallet-address-text">0x91c6D286BdDBCD6563Ed6e6578Df15a8DD1DEB1F</span>
-                                            <img src="./img/check.svg" alt="icon" class="check-icon">
-                                            <button class="wallet-cpy-btn"><img src="./img/copy-icon.png"
-                                                    alt="icon"></button>
-                                        </div>
-                                        <p class="note">*Do NOT send any other currency than BNB to this address on BSC
-                                            network</p>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="btc" role="tabpanel" aria-labelledby="btc-tab">
-                                    <div class="payment-tab-content">
-                                        <div class="wallet-qr-code">
-                                            <img src="./img/qr-code-btc.png" alt="qr-code">
-                                        </div>
-                                        <div class="wallet-address-box">
-                                            <img class="coin-icon" src="./img/btc.png" alt="icon">
-                                            <span
-                                                class="wallet-address-text">bc1qylhv6k8vehm92pxt3l23lfztup952gqn9v6k8e</span>
-                                            <img src="./img/check.svg" alt="icon" class="check-icon">
-                                            <button class="wallet-cpy-btn"><img src="./img/copy-icon.png"
-                                                    alt="icon"></button>
-                                        </div>
-                                        <p class="note">*Do NOT send any other currency than Bitcoin to this address</p>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="usdt" role="tabpanel" aria-labelledby="usdt-tab">
-                                    <div class="payment-tab-content">
-                                        <div class="wallet-qr-code">
-                                            <img src="./img/qr-code-usdt.png" alt="qr-code">
-                                        </div>
-                                        <div class="wallet-address-box">
-                                            <img class="coin-icon" src="./img/usdt.png" alt="icon">
-                                            <span
-                                                class="wallet-address-text">0x91c6D286BdDBCD6563Ed6e6578Df15a8DD1DEB1F</span>
-                                            <img src="./img/check.svg" alt="icon" class="check-icon">
-                                            <button class="wallet-cpy-btn"><img src="./img/copy-icon.png"
-                                                    alt="icon"></button>
-                                        </div>
-                                        <p class="note">*Do NOT send any other currency than USDT to this address</p>
+
+                                    <button class="buy-token-btn" onclick="myFunction()">Buy Token
+                                        Now</button>
+                                    <div class="card-img">
+                                        <img class="mt-2" src="./img/cards-img.png" alt="img">
+                                        <img src="./img/bank-icon.svg" alt="icon">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <h6>For wire transfers please email: <a href="mailto:info@playmatez.io">info@playmatez.io</a>
-                        </h6>
+                        <div class="flip-card-back">
+                            <div class="payment-card">
+                                <div class="payment-card-body">
+                                    <button type="button" class="btn-close" onclick="myFunction()"></button>
+                                    <h3>Buy $PLYM</h3>
+                                    <h5>Payment Options</h5>
+                                    <div class="payment-tab">
+                                        <ul class="nav nav-tabs payment-tab-list" id="paymentTab" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link active" id="eth-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#eth" type="button" role="tab" aria-controls="eth"
+                                                    aria-selected="true"><img src="./img/eth.png" alt="icon">
+                                                    Eth</button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link" id="bnb-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#bnb" type="button" role="tab" aria-controls="bnb"
+                                                    aria-selected="false"><img src="./img/bnb.png"
+                                                        alt="icon">Bnb</button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link" id="btc-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#btc" type="button" role="tab" aria-controls="btc"
+                                                    aria-selected="false"><img src="./img/btc.png"
+                                                        alt="icon">Btc</button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link" id="usdt-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#usdt" type="button" role="tab" aria-controls="usdt"
+                                                    aria-selected="false"><img src="./img/usdt.png"
+                                                        alt="icon">Usdt</button>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="paymentTabContent">
+                                            <div class="tab-pane fade show active" id="eth" role="tabpanel"
+                                                aria-labelledby="eth-tab">
+                                                <div class="payment-tab-content">
+                                                    <div class="wallet-qr-code">
+                                                        <img src="./img/qr-code-eth.png" alt="qr-code">
+                                                    </div>
+                                                    <div class="wallet-address-box">
+                                                        <img class="coin-icon" src="./img/eth.png" alt="icon">
+                                                        <span
+                                                            class="wallet-address-text">0x91c6D286BdDBCD6563Ed6e6578Df15a8DD1DEB1F</span>
+                                                        <button class="wallet-cpy-btn"><img src="./img/copy-icon.png"
+                                                                alt="icon"></button>
+                                                    </div>
+                                                    <p class="note">*Do NOT send any other currency than Ethereum to
+                                                        this
+                                                        address
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="bnb" role="tabpanel"
+                                                aria-labelledby="bnb-tab">
+                                                <div class="payment-tab-content">
+                                                    <div class="wallet-qr-code">
+                                                        <img src="./img/qr-code-bnb.png" alt="qr-code">
+                                                    </div>
+                                                    <div class="wallet-address-box">
+                                                        <img class="coin-icon" src="./img/bnb.png" alt="icon">
+                                                        <span
+                                                            class="wallet-address-text">0x91c6D286BdDBCD6563Ed6e6578Df15a8DD1DEB1F</span>
+                                                        <button class="wallet-cpy-btn"><img src="./img/copy-icon.png"
+                                                                alt="icon"></button>
+                                                    </div>
+                                                    <p class="note">*Do NOT send any other currency than BNB to this
+                                                        address
+                                                        on BSC
+                                                        network</p>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="btc" role="tabpanel"
+                                                aria-labelledby="btc-tab">
+                                                <div class="payment-tab-content">
+                                                    <div class="wallet-qr-code">
+                                                        <img src="./img/qr-code-btc.png" alt="qr-code">
+                                                    </div>
+                                                    <div class="wallet-address-box">
+                                                        <img class="coin-icon" src="./img/btc.png" alt="icon">
+                                                        <span
+                                                            class="wallet-address-text">bc1qylhv6k8vehm92pxt3l23lfztup952gqn9v6k8e</span>
+                                                        <button class="wallet-cpy-btn"><img src="./img/copy-icon.png"
+                                                                alt="icon"></button>
+                                                    </div>
+                                                    <p class="note">*Do NOT send any other currency than Bitcoin to this
+                                                        address</p>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="usdt" role="tabpanel"
+                                                aria-labelledby="usdt-tab">
+                                                <div class="payment-tab-content">
+                                                    <div class="wallet-qr-code">
+                                                        <img src="./img/qr-code-usdt.png" alt="qr-code">
+                                                    </div>
+                                                    <div class="wallet-address-box">
+                                                        <img class="coin-icon" src="./img/usdt.png" alt="icon">
+                                                        <span
+                                                            class="wallet-address-text">0x91c6D286BdDBCD6563Ed6e6578Df15a8DD1DEB1F</span>
+                                                        <button class="wallet-cpy-btn"><img src="./img/copy-icon.png"
+                                                                alt="icon"></button>
+                                                    </div>
+                                                    <p class="note">*Do NOT send any other currency than USDT to this
+                                                        address</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h6>For wire transfers please complete the contact form</h6>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        /*-- Timer scripts start --*/
-        var timerContent = $(".timer");
-        if (timerContent.length) {
-            function makeTimer() {
-                var endTime = new Date("nov 02, 2024 21:15:13");
-                var endTime = Date.parse(endTime) / 1000;
-                var now = new Date();
-                var now = Date.parse(now) / 1000;
-                var timeLeft = endTime - now;
-                var days = Math.floor(timeLeft / 86400);
-                var hours = Math.floor((timeLeft - days * 86400) / 3600);
-                var Xmas95 = new Date("December 25, 2023 23:15:30");
-                var hour = Xmas95.getHours();
-                var minutes = Math.floor((timeLeft - days * 86400 - hours * 3600) / 60);
-                var seconds = Math.floor(timeLeft - days * 86400 - hours * 3600 - minutes * 60);
-                if (hours < "10") {
-                    hours = "0" + hours;
-                }
-                if (minutes < "10") {
-                    minutes = "0" + minutes;
-                }
-                if (seconds < "10") {
-                    seconds = "0" + seconds;
-                }
-                $(".timer .days").html(days + "<span>d</span>");
-                $(".timer .hours").html(hours + "<span>h</span>");
-                $(".timer .minutes").html(minutes + "<span>m</span>");
-                $(".timer .seconds").html(seconds + "<span>s</span>");
+        document.addEventListener("DOMContentLoaded", function () {
+            var copyButtons = document.querySelectorAll('.wallet-cpy-btn');
+
+            copyButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var addressBox = this.parentElement.querySelector('.wallet-address-text');
+                    var address = addressBox.textContent.trim();
+                    copyToClipboard(address);
+
+                    // Hide the copy button image
+                    this.querySelector('img').style.display = 'none';
+
+                    // Show the "Copied!" text
+                    var copiedText = document.createElement('span');
+                    copiedText.textContent = 'Copied!';
+                    copiedText.classList.add('copied-text');
+                    this.parentElement.appendChild(copiedText);
+
+                    // Hide the "Copied!" text after 3 seconds and show the copy button image
+                    setTimeout(function () {
+                        copiedText.remove();
+                        button.querySelector('img').style.display = 'block';
+                    }, 3000);
+                });
+            });
+
+            function copyToClipboard(text) {
+                navigator.clipboard.writeText(text)
+                    .then(function () {
+                        console.log('Text copied to clipboard');
+                    })
+                    .catch(function (error) {
+                        console.error('Unable to copy text to clipboard:', error);
+                    });
             }
-            setInterval(function () {
-                makeTimer();
-            }, 1000);
-        }
-        /*-- Timer scripts end --*/
+        });
     </script>
 
     <script>
-        /*-- copy wallet address --*/
-        function copyToClipboard(text) {
-            var dummy = document.createElement("textarea");
-            document.body.appendChild(dummy);
-            dummy.value = text;
-            dummy.select();
-            document.execCommand("copy");
-            document.body.removeChild(dummy);
+        function myFunction() {
+        var element = document.getElementById("FlipCard");
+        element.classList.toggle("active");
         }
-
-        function showCheckIcon(iconElement) {
-            iconElement.style.display = "inline";
-            setTimeout(function () {
-                iconElement.style.display = "none";
-            }, 3000);
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            var copyButtons = document.querySelectorAll(".wallet-cpy-btn");
-            copyButtons.forEach(function (button) {
-                button.addEventListener("click", function () {
-                    var walletAddressText = this.parentNode.querySelector(".wallet-address-text").textContent;
-                    navigator.clipboard.writeText(walletAddressText).then(function () {
-                        var checkIcon = button.parentNode.querySelector(".check-icon");
-                        showCheckIcon(checkIcon);
-                    }).catch(function (err) {
-                        console.error('Failed to copy: ', err);
-                    });
-                });
-            });
-        });
     </script>
 </body>
 

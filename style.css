@@ -112,7 +112,7 @@ h5 {
     border-radius: 12px;
     background: #1DFF96;
     text-align: right;
-    padding: 6px 8px;
+    padding: 6px 8px 6px 0px;
     color: #111;
     text-align: right;
     font-family: Outfit;
@@ -165,17 +165,17 @@ h5 {
     gap: 8px;
 }
 
-.payment-modal .modal-dialog {
+.payment-card .modal-dialog {
     max-width: 570px;
 }
 
-.payment-modal-body {
+.payment-card-body {
     text-align: center;
     position: relative;
     padding: 40px;
 }
 
-.payment-modal-body .btn-close {
+.payment-card-body .btn-close {
     position: absolute;
     right: 24px;
     top: 24px;
@@ -183,12 +183,12 @@ h5 {
     width: 10px;
 }
 
-.payment-modal-body h3 {
+.payment-card-body h3 {
     color: #111111;
     margin-bottom: 40px;
 }
 
-.payment-modal-body h5 {
+.payment-card-body h5 {
     color: #111;
     line-height: 26px;
     text-transform: uppercase;
@@ -294,10 +294,16 @@ h5 {
     background: transparent;
     outline: none;
 }
-.check-icon{
+.copied-success {
     margin-left: auto;
     margin-right: 10px;
     display: none;
+    color: #064028;
+    font-size: 12px;
+    background: #FFFFFF;
+    position: absolute;
+    right: 30px;
+    height: 30px;
 }
 
 .payment-tab-content p.note {
@@ -311,7 +317,7 @@ h5 {
     margin: 0px;
 }
 
-.payment-modal-body h6 {
+.payment-card-body h6 {
     color: #111;
     text-align: center;
     font-size: 15px;
@@ -322,12 +328,15 @@ h5 {
     margin-bottom: 0px;
 }
 
-.payment-modal-body h6 a {
+.payment-card-body h6 a {
     color: #04643C;
     text-decoration: none;
 }
 
 @media screen and (max-width: 1200px) and (min-width: 991px) {
+    .buy-token-prpgress .progress .progress-bar{
+        font-size: 12px;
+    }
     .buy-token-card .timer ul li {
         font-size: 40px;
     }
@@ -360,7 +369,7 @@ h5 {
         font-size: 40px;
     }
 
-    .payment-modal-body {
+    .payment-card-body {
         padding: 40px 20px;
     }
 }
