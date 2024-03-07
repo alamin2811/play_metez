@@ -42,6 +42,64 @@ h5 {
     padding: 60px 50px 30px 50px;
 }
 
+.buy-token-card h3 {
+    color: #FFF;
+    text-align: center;
+    font-family: Outfit;
+    text-transform: uppercase;
+    line-height: 30px;
+}
+
+.buy-token-card .timer {
+    max-width: 470px;
+    width: 100%;
+    margin: auto;
+}
+
+.buy-token-card .timer ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0px;
+    margin: 50px 0px;
+}
+
+.buy-token-card .timer ul li {
+    text-align: center;
+    font-family: "Bebas Neue";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.20) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.buy-token-card .timer ul li::after {
+    content: ':';
+    margin-left: 18px;
+    margin-top: -2px;
+}
+
+.buy-token-card .timer ul li:nth-last-child(1):after {
+    display: none;
+}
+
+.buy-token-card h5 {
+    color: #FFF;
+    line-height: 26px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.buy-token-prpgress {
+    margin-top: 55px;
+    margin-bottom: 48px;
+}
+
 .buy-token-prpgress .progress {
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.10);
