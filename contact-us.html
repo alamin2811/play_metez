@@ -15,59 +15,75 @@
 <body>
     <div class="buy-token-card buy-token-card-form">
         <div class="overlay">
-            <h6>Invest in the Future of Casino Gaming</h6>
+            <div class="flip-card" id="result">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h6>Invest in the Future of Casino Gaming</h6>
 
-            <form id="contractForm" class="buy-token-form" action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="6cf29c4d-1957-4846-bcdd-7cd26b9d1926">
-                <div class="form-group form-input">
-                    <label for="fullName">Full Name:</label>
-                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name"
-                        class="input-fild" required>
-                </div>
-                <div class="form-group form-input">
-                    <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email address"
-                        class="input-fild" required>
-                </div>
-                <div class="form-group form-input">
-                    <label for="contactNumber">Contact Number:</label>
-                    <input type="tel" id="contactNumber" name="contactNumber"
-                        placeholder="Enter your best contact number" class="form-control" required>
-                    <!-- <input type="hidden" id="contactNumberWithCode" name="contactNumberWithCode" value="" /> -->
-                </div>
-                <div class="form-group form-input">
-                    <label>Investment Amount:</label>
-                    <div class="radio-group">
-                        <label class="radio-container"> Under $5,000  
-                            <input type="radio" name="investmentAmount" value="$1,000 - $5,000">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="radio-container"> $5,001 - $10,000
-                            <input type="radio" name="investmentAmount" value="$5,001 - $10,000">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="radio-container"> $10,001 - $20,000
-                            <input type="radio" name="investmentAmount" value="$10,001 - $20,000">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="radio-container"> $20,001 - $50,000
-                            <input type="radio" name="investmentAmount" value="$20,001 - $50,000">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="radio-container"> $50,001 - $100,000
-                            <input type="radio" name="investmentAmount" value="$50,001 - $100,000">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="radio-container"> Over $100,000
-                            <input type="radio" name="investmentAmount" value="Over $100,000">
-                            <span class="checkmark"></span>
-                        </label>
+                        <form id="form" class="buy-token-form" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="value="
+                                6cf29c4d-1957-4846-bcdd-7cd26b9d1926"">
+                            <div class="form-group form-input">
+                                <label for="fullName">Full Name:</label>
+                                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name"
+                                    class="input-fild" required>
+                            </div>
+                            <div class="form-group form-input">
+                                <label for="email">Email Address:</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email address"
+                                    class="input-fild" required>
+                            </div>
+                            <div class="form-group form-input">
+                                <label for="contactNumber">Contact Number:</label>
+                                <input type="tel" id="contactNumber" name="contactNumber"
+                                    placeholder="Enter your best contact number" class="form-control" required>
+                            </div>
+                            <div class="form-group form-input">
+                                <label>Investment Amount:</label>
+                                <div class="radio-group">
+                                    <label class="radio-container"> Under $5,000
+                                        <input type="radio" name="investmentAmount" value="$1,000 - $5,000">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio-container"> $5,001 - $10,000
+                                        <input type="radio" name="investmentAmount" value="$5,001 - $10,000">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio-container"> $10,001 - $20,000
+                                        <input type="radio" name="investmentAmount" value="$10,001 - $20,000">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio-container"> $20,001 - $50,000
+                                        <input type="radio" name="investmentAmount" value="$20,001 - $50,000">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio-container"> $50,001 - $100,000
+                                        <input type="radio" name="investmentAmount" value="$50,001 - $100,000">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio-container"> Over $100,000
+                                        <input type="radio" name="investmentAmount" value="Over $100,000">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit">Submit</button>
+                        </form>
+                        <p>By submitting this form, you agree to receive confidential communications from us about
+                            Playmatez Casino. Terms and conditions apply.</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card-back-inner">
+                            <h3>Submitted!! Check Your Email! 🌟</h3>
+                            <h5>Please check your email for a special message from us.</h5>
+                            <p>🎁 Claim your FREE bonus spins worth $100!</p>
+                            <p>📈 Or double your initial investment with our special offer!</p>
+                            <p>⚡Don't miss out! Take your investment to the next level and start winning today! ⚡</p>
+                        </div>
                     </div>
                 </div>
-                <button type="submit">Submit</button>
-            </form>
-            <p>By submitting this form, you agree to receive confidential communications from us about Playmatez Casino.
-                Terms and conditions apply.</p>
+            </div>
+
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -138,30 +154,41 @@
     </script>
 
     <script>
-        $(document).ready(function () {
-            $("#contractForm").submit(function (event) {
-                event.preventDefault(); // Prevent the form from submitting normally
+        const form = document.getElementById("form");
+        const result = document.getElementById("result");
 
-                // Perform AJAX submission of the form
-                $.ajax({
-                    url: $(this).attr('action'),
-                    type: $(this).attr('method'),
-                    data: $(this).serialize(),
-                    success: function (response) {
-                        // Hide the form
-                        $("#contractForm").hide();
-
-                        // Display custom success message
-                        $("#successMessage").text("Thank you for your submission! We'll be in touch soon.").show();
-                    },
-                    error: function (xhr, status, error) {
-                        // Handle error if the form submission fails
-                        console.error(error);
-                        // Display error message or take appropriate action
-                    }
-                });
+        form.addEventListener("submit", function (e) {
+            const formData = new FormData(form);
+            e.preventDefault();
+            var object = {};
+            formData.forEach((value, key) => {
+                object[key] = value;
             });
+            var json = JSON.stringify(object);
+
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: json
+            })
+                .then(async (response) => {
+                    let json = await response.json();
+                    if (response.status == 200) {
+                        result.classList.add("active");
+                    } else {
+                        console.log(response);
+                        result.classList.remove("remove");
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                    // result.innerHTML = "Something went wrong!";
+                });
         });
+
     </script>
 
 </body>
