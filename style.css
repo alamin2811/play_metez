@@ -3,10 +3,11 @@
 }
 
 body {
-    background: #04643C;
+    background: transparent;
     font-family: "Outfit", sans-serif;
     padding: 0px;
     margin: 0px;
+    /* overflow: hidden; */
 }
 
 h1,
@@ -30,7 +31,7 @@ h5 {
     border-radius: 30px;
     background: #064028;
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .buy-token-card .overlay {
@@ -39,64 +40,6 @@ h5 {
     background-position: center center;
     background-repeat: no-repeat;
     padding: 60px 50px 30px 50px;
-}
-
-.buy-token-card h3 {
-    color: #FFF;
-    text-align: center;
-    font-family: Outfit;
-    text-transform: uppercase;
-    line-height: 30px;
-}
-
-.buy-token-card .timer {
-    max-width: 470px;
-    width: 100%;
-    margin: auto;
-}
-
-.buy-token-card .timer ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    list-style: none;
-    padding: 0px;
-    margin: 50px 0px;
-}
-
-.buy-token-card .timer ul li {
-    text-align: center;
-    font-family: "Bebas Neue";
-    font-size: 60px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 50px;
-    background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.20) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.buy-token-card .timer ul li::after {
-    content: ':';
-    margin-left: 18px;
-    margin-top: -2px;
-}
-
-.buy-token-card .timer ul li:nth-last-child(1):after {
-    display: none;
-}
-
-.buy-token-card h5 {
-    color: #FFF;
-    line-height: 26px;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.buy-token-prpgress {
-    margin-top: 55px;
-    margin-bottom: 48px;
 }
 
 .buy-token-prpgress .progress {
@@ -111,7 +54,6 @@ h5 {
 .buy-token-prpgress .progress .progress-bar {
     border-radius: 12px;
     background: #1DFF96;
-    text-align: right;
     padding: 6px 8px 6px 0px;
     color: #111;
     text-align: right;
@@ -120,6 +62,7 @@ h5 {
     font-style: normal;
     font-weight: 700;
     line-height: 15px;
+    overflow: visible;
 }
 
 .buy-token-prpgress p {
@@ -165,6 +108,12 @@ h5 {
     gap: 8px;
 }
 
+.payment-card {
+    background: #FFFFFF;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
 .payment-card .modal-dialog {
     max-width: 570px;
 }
@@ -202,6 +151,7 @@ h5 {
     flex-wrap: wrap;
     border: none;
     margin-bottom: 40px;
+    list-style: none;
 }
 
 .payment-tab .payment-tab-list li {
@@ -294,16 +244,10 @@ h5 {
     background: transparent;
     outline: none;
 }
-.copied-success {
-    margin-left: auto;
-    margin-right: 10px;
-    display: none;
-    color: #064028;
-    font-size: 12px;
-    background: #FFFFFF;
-    position: absolute;
-    right: 30px;
-    height: 30px;
+
+.copied-text {
+    color: #04643C;
+    font-weight: 500;
 }
 
 .payment-tab-content p.note {
@@ -333,12 +277,303 @@ h5 {
     text-decoration: none;
 }
 
+.flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card.active .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+    background: #FFFFFF;
+    transform: rotateY(180deg);
+}
+
+.buy-token-card-form h6 {
+    color: #FFF;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 34px;
+}
+
+
+.buy-token-card-form h6{
+    color: #FFF;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 34px;
+}
+.buy-token-form {
+    text-align: center;
+}
+.buy-token-form .form-input{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.buy-token-form .form-group label{
+    color: #FFF;
+    font-family: Outfit;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px; /* 187.5% */
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+.buy-token-form .form-input .input-fild{
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.20);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    height: 55px;
+    width: 100%;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    font-family: Outfit;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    outline: none;
+}
+.buy-token-form .form-input .input-fild::placeholder{
+    color: rgba(255, 255, 255, 0.50);
+}
+
+.radio-group{
+    text-align: left;
+}
+
+.buy-token-form button{
+    border-radius: 30px;
+    background: linear-gradient(90deg, #1DFF96 0%, #BCFF7B 100%);
+    backdrop-filter: blur(10px);
+    height: 60px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #111;
+    font-family: Outfit;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px; /* 162.5% */
+    text-transform: uppercase;
+}
+
+.buy-token-card-form p{
+    color: #FFF;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; 
+    margin-top: 27px;
+}
+
+.buy-token-form .form-input .iti--allow-dropdown{
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.20);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    height: 55px;
+    width: 100%;
+    z-index: 2;
+}
+.buy-token-form .form-input  input.iti__tel-input{
+    background: transparent;
+    border: none;
+    outline: none;
+    height: 100%;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    font-family: Outfit;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    outline: none;
+    padding-left: 126px !important;
+}
+.buy-token-form .form-input  input.iti__tel-input::placeholder{
+    color: rgba(255, 255, 255, 0.50);
+}
+.buy-token-form .form-input  input.iti__tel-input:focus{
+    border: none;
+    box-shadow: none;
+}
+.buy-token-form .form-input .iti__selected-flag{
+    width: 106px;
+    border: none;
+    border-right: 2px solid rgba(255, 255, 255, 0.20);
+    padding-left: 16px;
+}
+
+.buy-token-form .form-input .iti__selected-dial-code{
+    color: #FFFFFF;
+    font-family: Outfit;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    outline: none;
+}
+.buy-token-form .form-input .iti__flag{
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+}
+.buy-token-form .iti__arrow {
+    margin-left: 6px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 9px solid rgba(255, 255, 255, 0.70);
+}
+.buy-token-form .iti__arrow--up{
+    display: none;
+}
+.buy-token-card.buy-token-card-form .overlay{
+    padding: 40px 40px 40px 30px;
+}
+
+.radio-container {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 0;
+  }
+  .radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .checkmark {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.50);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  .radio-container:hover input ~ .checkmark {
+    background-color: transparent;
+    border: 2px solid #FFFFFF;
+  }
+  .radio-container input:checked ~ .checkmark {
+    background-color: transparent;
+    border: 2px solid #1DFF96;
+  }
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  .radio-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  .radio-container .checkmark:after {
+       top: 2px;
+      left: 2px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1DFF96;
+  }
+
+
 @media screen and (max-width: 1200px) and (min-width: 991px) {
-    .buy-token-prpgress .progress .progress-bar{
+    .buy-token-prpgress .progress .progress-bar {
         font-size: 12px;
     }
+
     .buy-token-card .timer ul li {
         font-size: 40px;
+    }
+
+    .buy-token-card .timer ul {
+        margin: 30px 0px;
+    }
+
+    .payment-card-body {
+        padding: 30px 20px;
+    }
+
+    .payment-tab-content p.note {
+        line-height: 120%;
+    }
+
+    .payment-card-body h6 {
+        margin-top: 10px;
+        line-height: 120%;
+    }
+
+    .payment-tab-content .wallet-address-box {
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+
+    .payment-card-body h3 {
+        margin-bottom: 20px;
+    }
+
+    .payment-card-body h5 {
+        margin-bottom: 30px;
+    }
+
+    .payment-tab .payment-tab-list li button {
+        gap: 6px;
+        font-size: 13px;
+        height: 48px;
+    }
+
+    .payment-tab .payment-tab-list li button img {
+        min-height: 18px;
+        min-width: 18px;
+        max-height: 18px;
+        max-width: 18px;
     }
 
     .buy-token-card .timer ul {
@@ -375,9 +610,43 @@ h5 {
 }
 
 @media only screen and (max-width: 540px) {
-    .payment-tab .payment-tab-list li {
-        width: 48%;
-        margin-bottom: 13px;
+    .payment-card-body {
+        padding: 30px 20px;
+    }
+
+    .payment-tab-content p.note {
+        line-height: 120%;
+    }
+
+    .payment-card-body h6 {
+        margin-top: 10px;
+        line-height: 120%;
+    }
+
+    .payment-tab-content .wallet-address-box {
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+
+    .payment-card-body h3 {
+        margin-bottom: 10px;
+    }
+
+    .payment-card-body h5 {
+        margin-bottom: 20px;
+    }
+
+    .payment-tab .payment-tab-list li button {
+        gap: 6px;
+        font-size: 13px;
+        height: 45px;
+    }
+
+    .payment-tab .payment-tab-list li button img {
+        min-height: 18px;
+        min-width: 18px;
+        max-height: 18px;
+        max-width: 18px;
     }
 
     .buy-token-card .timer ul {
@@ -398,3 +667,5 @@ h5 {
         padding: 40px 30px 25px;
     }
 }
+
+
