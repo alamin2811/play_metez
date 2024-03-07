@@ -7,6 +7,7 @@ body {
     font-family: "Outfit", sans-serif;
     padding: 0px;
     margin: 0px;
+    background: #000;
     /* overflow: hidden; */
 }
 
@@ -39,7 +40,6 @@ h5 {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    padding: 60px 50px 30px 50px;
 }
 
 .buy-token-card h3 {
@@ -347,7 +347,7 @@ h5 {
     text-align: center;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 40px 40px 40px 30px;
 }
 
 .flip-card.active .flip-card-inner {
@@ -362,10 +362,54 @@ h5 {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
+.buy-token-card-form .flip-card-front{
+    position: relative;
+}
+.buy-token-card-form .flip-card-back{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+}
 
 .flip-card-back {
-    background: #FFFFFF;
     transform: rotateY(180deg);
+    border-radius: 30px;
+    background: #FFF;
+    text-align: center;
+    font-family: Outfit;
+    font-weight: 600;
+}
+.flip-card-back .card-back-inner{
+    max-width: 460px;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.flip-card-back .card-back-inner h3{
+    font-size: 30px;
+    line-height: 38px;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    color: #111;
+    text-transform: capitalize;
+}
+.flip-card-back .card-back-inner h5{
+    font-size: 18px;
+    margin-bottom: 50px;
+    color: #111;
+    text-transform: capitalize;
+}
+.flip-card-back .card-back-inner p{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 38px;
+    color: #111 !important;
+    margin: 0px;
 }
 
 .buy-token-card-form h6 {
@@ -524,10 +568,6 @@ h5 {
 .buy-token-form .iti__arrow--up{
     display: none;
 }
-.buy-token-card.buy-token-card-form .overlay{
-    padding: 40px 40px 40px 30px;
-}
-
 .radio-container {
     display: block;
     position: relative;
@@ -693,26 +733,25 @@ h5 {
     .payment-card-body h5 {
         margin-bottom: 20px;
     }
-
     .payment-tab .payment-tab-list li button {
         gap: 6px;
         font-size: 13px;
         height: 45px;
     }
-
     .payment-tab .payment-tab-list li button img {
         min-height: 18px;
         min-width: 18px;
         max-height: 18px;
         max-width: 18px;
     }
-
     .buy-token-card .timer ul {
         margin: 30px 0px;
     }
-
     .buy-token-prpgress {
         margin: 30px 0px;
+    }
+    .buy-token-card-form .flip-card-inner .flip-card-back{
+        padding: 40px 30px 25px;
     }
 }
 
@@ -721,7 +760,7 @@ h5 {
         font-size: 24px;
     }
 
-    .buy-token-card .overlay {
+    .buy-token-card-form .flip-card-inner{
         padding: 40px 30px 25px;
     }
 }
