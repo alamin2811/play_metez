@@ -7,7 +7,6 @@ body {
     font-family: "Outfit", sans-serif;
     padding: 0px;
     margin: 0px;
-    background: #000;
     /* overflow: hidden; */
 }
 
@@ -36,7 +35,7 @@ h5 {
 }
 
 .buy-token-card .overlay {
-    background: url(./img/card-bg.png);
+    background: url(../img/card-bg.png);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -551,11 +550,6 @@ h5 {
     font-weight: 500;
     line-height: 18px;
     outline: none;
-}
-.buy-token-form .form-input .iti__flag{
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
 }
 .buy-token-form .iti__arrow {
     margin-left: 6px;
